@@ -19,6 +19,13 @@ int main(void)
 		putchar(ch);
 		ch++;
 	}
+
+	/*prints A -Z*/
+	while (CH <= 'z')
+	{
+		putchar(CH);
+		CH++;
+	}
 	putchar('\n');
 
 	return (0);
