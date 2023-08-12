@@ -14,7 +14,6 @@ int main(void)
 
 	while (digit <= 9)
 	{
-		/*convert digit to AscII representation*/
 		putchar(digit + '0');
 		digit++;
 	}
