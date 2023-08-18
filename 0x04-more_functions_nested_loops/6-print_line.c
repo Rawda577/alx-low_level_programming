@@ -3,8 +3,6 @@
 /**
  * print_line - print a straight line
  *
- * Return: 0 (success)
- *
  * @n: number of underscores to print
  *
 */
