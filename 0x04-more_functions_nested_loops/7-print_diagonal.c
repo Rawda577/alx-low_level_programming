@@ -18,7 +18,7 @@ void print_diganola(int n)
 		{
 			for (space = 1; space <= postn; space++)
 				_putchar(' ');
-			-putchar(92); /*is equal to '/' char*/
+			-putchar(92); /* is equal to '/' char */
 			_putchar('\n');
 		}
 	}
