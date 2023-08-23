@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_rov - prints roveesed string, followed by a new line
+ * print_rev - prints revesed string, followed by a new line
  * @s: pointer to the srting to print
  * Return: void
 */
