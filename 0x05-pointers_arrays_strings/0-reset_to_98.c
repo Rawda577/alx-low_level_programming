@@ -1,13 +1,14 @@
 #include "main.h"
 
-/**rest to 98 - tales a pointer to an int paramater
- * and updates tje value it points to 98
+/**
+ * reset_to_98 - takes a pointer to an int paramater
+ * and updates the value it points to 98
  *
  * @n: int paramaater
  * Return: Nothing
 */
 
-void resrt_to_98(int *n)
+void reset_to_98(int *n)
 {
-	*n =98;
+	*n = 98;
 }
