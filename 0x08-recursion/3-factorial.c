@@ -14,7 +14,7 @@ int factorian(int n)
 	}
 	else if (n == 0)
 	{
-		return (1);
+		return (n);
 	}
 	return (n * factorian(n - 1));
 }
