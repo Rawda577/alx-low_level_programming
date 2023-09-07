@@ -17,13 +17,18 @@ char *_strdup(char *str)
 	;
 
 	/* +1 on the soze puts the end if string character */
-	m = malloc((size + 1) * sizeof(*str));
-	if (m == NULL)
+	m = malloc(size * sizeof(*str) + 1);
+
+	if (m == 0)
+	{
 		return (NULL);
+	}
+	else
+	{
 
 		for (; i < size; i++)
 			m[i] = str[i];
-		m[i] = '\0';
+	}
 
 	return (m);
 }
