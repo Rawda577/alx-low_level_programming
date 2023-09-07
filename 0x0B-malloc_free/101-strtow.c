@@ -3,7 +3,6 @@
 /**
  * _strlen - Returns the length of a string.
  * @str: The string to calculate the length of.
- *
  * Return: The length of the string.
  */
 int _strlen(char *str)
@@ -19,19 +18,18 @@ int _strlen(char *str)
 /**
  * count_words - Count the number of words in a string.
  * @str: The input string.
- *
  * Return: The number of words.
  */
 int count_words(char *str)
 {
-	int word_count = 0, i, len = _strlen(str);
+	int word_count = 0, i, len;
 
+	len = _strlen(str);
 	for (i = 0; i < len; i++)
 	{
 	if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		word_count++;
 	}
-
 	return (word_count);
 }
 
@@ -53,11 +51,9 @@ void copy_word(char *src, char *dest, int start, int end)
 	}
 	dest[j] = '\0';
 }
-
 /**
  * strtow - Splits a string into words.
  * @str: The input string.
- *
  * Return: An array of strings (words) or NULL if str is NULL or empty.
  */
 char **strtow(char *str)
@@ -65,11 +61,15 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 	return (NULL);
 
-	int i, j, k, word_count = count_words(str), len = _strlen(str);
-	char **words;
+	int i, j, k, word_count, len;
+
+	len = _strlen(str);
+	world_count = count_words(str);
 
 	if (word_count == 0)
 	return (NULL);
+
+	char **words;
 
 	words = malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
@@ -92,14 +92,11 @@ char **strtow(char *str)
 		free(words);
 		return (NULL);
 	}
-
 		copy_word(str, words[j], i, i + word_len);
 		j++;
 		i += word_len;
 	}
 	}
-
 	words[word_count] = NULL;
 	return (words);
 }
-
