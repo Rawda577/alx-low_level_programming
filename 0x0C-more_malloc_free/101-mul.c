@@ -2,82 +2,79 @@
 
 /**
  * _puts - prints a string, followed by a new line.
- * @str: pointer to the string to print
- */
+ * @str: pointer to the string to prints
+ * Return: void
+*/
 void _puts(char *str)
 {
-	while (*str)
+	int i = 0;
+
+	while (str[i])
 	{
-	_putchar(*str);
-	str++;
+		_putchar(str[i]);
+		i++;
 	}
 }
 
 /**
- * is_digit - checks if a string contains only digits
- * @str: pointer to the string to check
- * Return: 1 if all characters are digits, 0 otherwise
- */
-int is_digit(char *str)
-{
-	while (*str)
-	{
-	if (*str < '0' || *str > '9')
-		return (0);
-	str++;
-	}
-	return (1);
-}
-
-/**
- * custom_atoi - convert a string to an integer.
+ * _atoi - convert a string to an integer.
  * @s: char type string
  * Return: integer converted
- */
-int custom_atoi(char *s)
+*/
+int _atoi(const char *s)
 {
 	int sign = 1;
-	int result = 0;
+	unsigned long int resp = 0, firstNUM, i;
 
-	while (*s)
+	for (firstNUM = 0; !(s[firstNUM] >= 48 && s[firstNUM] <= 57); firstNUM++)
 	{
-	if (*s == '-')
+		if (s[firstNUM] == '-')
+		{
+			sign *= -1;
+		}
+	}
+	for (i = firstNUM; s[i] >= 48 && s[i] <= 57; i++)
 	{
-		sign *= -1;
+		resp *= 10;
+		resp += (s[i] - 48);
 	}
-	else if (*s >= '0' && *s <= '9')
-	{
-		result = result * 10 + (*s - '0');
-	}
-	else
-	{
-		break;
-	}
-	s++;
-	}
-
-	return (sign * result);
+	return (sign * resp);
 }
 
 /**
- * main - print the result of the multiplication, followed by a new line
- * @argc: number of arguments
- * @argv: array of argument strings
- * Return: 0 on success, 98 on error
- */
-int main(int argc, char *argv[])
+ * print_int - prints an integer.
+ * @n: int
+ * Return: 0
+*/
+void print_int(unsigned long int n)
 {
-	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+	unsigned long int divisor = 1, i, resp;
+
+	for (i = 0; n / divisor > 9; i++, divisor *= 10)
+		;
+	for (; divisor >= 1; n %= divisor, divisor /= 10)
 	{
-	_puts("Error");
-	return (98);
+		resp = n / divisor;
+		_putchar('0' + resp);
 	}
+}
 
-	int num1 = _atoi(argv[1]);
-	int num2 = _atoi(argv[2]);
-	int result = num1 * num2;
+/**
+ * main - print the result of the multiplication. followed by a new line
+ * @argc: int
+ * @argv: list
+ * Return: 0
+*/
+int main(int argc, char const *argv[])
+{
+	(void)argc;
 
-	print_int(result);
+	if (argc != 3)
+	{
+		_puts("Error");
+		exit(98);
+	}
+	print_int(_atoi(argv[1]) * _atoi(argv[2]));
 	_putchar('\n');
 
 	return (0);
