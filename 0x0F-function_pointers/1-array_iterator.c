@@ -7,6 +7,7 @@
  * @action: Pointer to the function to execute.
  * Return: void
  */
+
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	int *end = array + size - 1;
@@ -15,4 +16,3 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 		while (array <= end)
 			action(*array++);
 }
-
