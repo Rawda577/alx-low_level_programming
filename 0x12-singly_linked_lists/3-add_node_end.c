@@ -7,39 +7,33 @@
  * @head: Pointer to a pointer to the head of the list.
  * @str: String to be added to the new node.
  *
- * Return: Address of the new element, or NULL if it failed.
+ * Return: size of list
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	if (str == NULL)
-	return (NULL);
-
 	list_t *new_node = malloc(sizeof(list_t));
-
-	if (new_node == NULL)
-	return (NULL);
-
-	new_node->str = strdup(str);
-	if (new_node->str == NULL)
-	{
-	free(new_node);
-	return (NULL);
-	}
-
-	new_node->len = strlen(str);
-	new_node->next = NULL;
-
-	if (*head == NULL)
-	{
-	*head = new_node;
-	return (new_node);
-	}
-
 	list_t *temp = *head;
 
-	while (temp->next != NULL)
-	temp = temp->next;
+	if (!head || !new_node)
+		return (NULL);
+	if (str)
+	{
+		new_node->str = strdup(str);
+		if (new_node->str)
+		{
+			free(new_node);
+			return (NULL);
+		}
+		new_node->len = strlen(new_node->str);
+	}
+	if (node)
+	{
+		while (node->next)
+			node = node->next;
+		node->next = new_node;
+	}
+	else
 
-	temp->next = new_node;
+		*head = new_node;
 	return (new_node);
 }
