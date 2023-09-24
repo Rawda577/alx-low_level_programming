@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include "lists.h"
 
-void __attribute__((constructor)) print_before_main() {
-	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
-}
-
-int main(void) {
-	printf("(A tortoise, having pretty good sense of a hare's nature, challenges one to a race.)\n");
-	return 0;
+void _constructor(void) __attribute__ ((constructor));
+/**
+ * _constructor - executes befor main()
+ *
+ * Return: void
+ */
+void _constructor(void)
+{
+	printf("You're beat! and yet, you must allow,\n
+			I bore my house upon my back!\n");
 }
