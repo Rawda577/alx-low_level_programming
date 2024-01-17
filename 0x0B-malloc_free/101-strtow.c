@@ -18,6 +18,9 @@ char **strtow(char *str)
 	if (!str || !*str)
 		return (NULL);
 
+	while (*tmp && *tmp == ' ')
+		tmp++;
+
 	while (*tmp)
 	{
 		if (*tmp++ == ' ')
