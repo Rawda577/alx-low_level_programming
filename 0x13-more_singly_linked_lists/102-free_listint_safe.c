@@ -15,20 +15,13 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 
 	current = *h;
-	while (current)
+	while (current != NULL)
 	{
 		count++;
 		next = current->next;
-
-		/* Check if the current node has already been visited */
-		if (((void *)current - (void *)current->next) >= 0)
-		{
-			free(current);
-			*h = NULL;
-			break;
-		}
-
 		free(current);
+		if (current <= next)
+			break;
 		current = next;
 	}
 
